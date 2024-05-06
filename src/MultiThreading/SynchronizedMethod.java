@@ -1,3 +1,5 @@
+package MultiThreading;
+
 public class SynchronizedMethod {
 
     private volatile int i;
@@ -17,13 +19,13 @@ public class SynchronizedMethod {
     public static void main(String[] args) {
         SynchronizedMethod synchronizedMethod = new SynchronizedMethod();
 
-        // Atomic increment
+        // MultiThreading.AtomicExample increment
         synchronizedMethod.inc();
 
-        // Atomic decrement
+        // MultiThreading.AtomicExample decrement
         synchronizedMethod.dec();
 
-        // Atomic reading
+        // MultiThreading.AtomicExample reading
         System.out.println(synchronizedMethod.getI());
     }
 }

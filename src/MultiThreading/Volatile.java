@@ -1,3 +1,5 @@
+package MultiThreading;
+
 public class Volatile<T> {
 
     // 1. The volatile modifier allows not to cache a variable in threads.
@@ -13,7 +15,7 @@ public class Volatile<T> {
     public static void main(String[] args) {
         Volatile<Integer> aVolatile = new Volatile<>();
 
-        // Atomic reading
+        // MultiThreading.AtomicExample reading
         System.out.println(aVolatile.getData());
 
         // Non-atomic modification.

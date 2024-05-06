@@ -1,7 +1,9 @@
+package MultiThreading;
+
 public class ThreadGroup {
 
     public static void main(String[] args) {
-        java.lang.ThreadGroup groupA = new java.lang.ThreadGroup("Group Atomic");
+        java.lang.ThreadGroup groupA = new java.lang.ThreadGroup("Group MultiThreading.AtomicExample");
         java.lang.ThreadGroup groupB = new java.lang.ThreadGroup("Group B");
 
         java.lang.Thread a = new java.lang.Thread(groupA, () -> System.out.println("A1"));

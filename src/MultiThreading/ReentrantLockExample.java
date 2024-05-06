@@ -1,6 +1,8 @@
+package MultiThreading;
+
 import java.util.concurrent.locks.Lock;
 
-public class ReentrantLock<T> {
+public class ReentrantLockExample<T> {
 
     private final Lock lock = new java.util.concurrent.locks.ReentrantLock();
     private T data;
@@ -36,15 +38,15 @@ public class ReentrantLock<T> {
     }
 
     public static void main(String[] args) {
-        ReentrantLock<Integer> reentrantLock = new ReentrantLock<>();
+        ReentrantLockExample<Integer> reentrantLockExample = new ReentrantLockExample<>();
 
-        // Atomic modification with lock/unlock
-        reentrantLock.setWithLock(1);
+        // MultiThreading.AtomicExample modification with lock/unlock
+        reentrantLockExample.setWithLock(1);
 
-        // Atomic modification with trying lock/unlock
-        reentrantLock.setWithTryLock(2);
+        // MultiThreading.AtomicExample modification with trying lock/unlock
+        reentrantLockExample.setWithTryLock(2);
 
-        // Atomic modification with interruptibly lock/unlock
-        reentrantLock.setWithLockInterruptibly(3);
+        // MultiThreading.AtomicExample modification with interruptibly lock/unlock
+        reentrantLockExample.setWithLockInterruptibly(3);
     }
 }

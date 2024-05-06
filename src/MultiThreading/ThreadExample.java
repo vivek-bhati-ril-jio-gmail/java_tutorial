@@ -1,5 +1,8 @@
-public class Runnable {
-    static class ThreadA implements java.lang.Runnable {
+package MultiThreading;
+
+public class ThreadExample {
+
+    static class ThreadA extends java.lang.Thread {
         @Override
         public void run() {
             for (int i = 0; i < 10; i++) {
@@ -9,7 +12,7 @@ public class Runnable {
     }
 
     public static void main(String[] args) {
-        java.lang.Thread thread = new java.lang.Thread(new ThreadA());
+        ThreadA thread = new ThreadA();
         thread.start(); // starting thread
     }
 }

@@ -1,3 +1,5 @@
+package MultiThreading;
+
 public class SynchronizedBlock {
 
     private volatile int i;
@@ -21,13 +23,13 @@ public class SynchronizedBlock {
     public static void main(String[] args) {
         SynchronizedBlock synchronizedBlock = new SynchronizedBlock();
 
-        // Atomic increment
+        // MultiThreading.AtomicExample increment
         synchronizedBlock.inc();
 
-        // Atomic decrement
+        // MultiThreading.AtomicExample decrement
         synchronizedBlock.dec();
 
-        // Atomic reading
+        // MultiThreading.AtomicExample reading
         System.out.println(synchronizedBlock.getI());
     }
 }

@@ -1,3 +1,5 @@
+package MultiThreading;
+
 public class CountDownLatch {
 
     public static void main(String[] args) throws InterruptedException {

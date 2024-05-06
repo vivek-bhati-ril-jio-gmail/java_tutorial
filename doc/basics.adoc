@@ -1,7 +1,7 @@
 = Basics
 == Concurrency vs Parallelism
-== Thread vs Process
+== MultiThreading.ThreadExample vs Process
 == Starting threads
 == Lifecycle of threads
-== Volatile
+== MultiThreading.Volatile
 == Synchronized

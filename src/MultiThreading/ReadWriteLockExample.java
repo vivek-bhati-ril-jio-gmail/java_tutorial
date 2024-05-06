@@ -1,7 +1,9 @@
+package MultiThreading;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class ReadWriteLock<T> {
+public class ReadWriteLockExample<T> {
 
     private final java.util.concurrent.locks.ReadWriteLock lock = new ReentrantReadWriteLock();
     private final Lock readLock = lock.readLock();
@@ -29,13 +31,13 @@ public class ReadWriteLock<T> {
     }
 
     public static void main(String[] args) {
-        ReadWriteLock<Integer> readWriteLock = new ReadWriteLock<>();
+        ReadWriteLockExample<Integer> readWriteLockExample = new ReadWriteLockExample<>();
 
-        // Atomic modification with write lock
-        readWriteLock.setWithWriteLock(1);
+        // MultiThreading.AtomicExample modification with write lock
+        readWriteLockExample.setWithWriteLock(1);
 
-        // Atomic reading with read lock
-        System.out.println(readWriteLock.getWithReadLock());
+        // MultiThreading.AtomicExample reading with read lock
+        System.out.println(readWriteLockExample.getWithReadLock());
     }
 
 }

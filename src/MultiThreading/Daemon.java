@@ -1,3 +1,5 @@
+package MultiThreading;
+
 public class Daemon {
 
     public static void main(String[] args) {
@@ -10,7 +12,7 @@ public class Daemon {
         // Setting daemon.
         thread.setDaemon(true);
 
-        // Starting thread.
+        // Starting threadExample.
         thread.start();
     }
 }

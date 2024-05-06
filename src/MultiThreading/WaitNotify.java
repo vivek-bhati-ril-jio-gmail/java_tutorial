@@ -1,3 +1,5 @@
+package MultiThreading;
+
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -23,7 +25,7 @@ public class WaitNotify<E> {
     }
 
     public synchronized void consume() throws InterruptedException {
-        while (data.size() <= 0)
+        while (data.isEmpty())
             wait();
 
         java.lang.Thread.sleep(100);
@@ -35,7 +37,7 @@ public class WaitNotify<E> {
     public static void main(String[] args) {
         WaitNotify<Integer> waitNotify = new WaitNotify<>();
 
-        // The first thread which call the provide method of Atomic class and send number to queue.
+        // The first thread which call the provide method of MultiThreading.AtomicExample class and send number to queue.
         new java.lang.Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 try {
@@ -44,7 +46,7 @@ public class WaitNotify<E> {
             }
         }).start();
 
-        // The second thread which call the consume method of Atomic class for remove number from queue.
+        // The second thread which call the consume method of MultiThreading.AtomicExample class for remove number from queue.
         new java.lang.Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 try {

@@ -1,3 +1,5 @@
+package MultiThreading;
+
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.locks.Condition;
@@ -43,7 +45,7 @@ public class Conditional<T> {
     public static void main(String[] args) {
         Conditional<Integer> conditional = new Conditional<>();
 
-        // The first thread which call the provide method of Atomic class and send number to queue.
+        // The first thread which call the provide method of MultiThreading.AtomicExample class and send number to queue.
         new Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 conditional.provide(i);
@@ -54,7 +56,7 @@ public class Conditional<T> {
             }
         }).start();
 
-        // The second thread which call the consume method of Atomic class for remove number from queue.
+        // The second thread which call the consume method of MultiThreading.AtomicExample class for remove number from queue.
         new Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 try {

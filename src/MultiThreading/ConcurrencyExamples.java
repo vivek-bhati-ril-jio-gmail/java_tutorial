@@ -1,3 +1,5 @@
+package MultiThreading;
+
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
@@ -24,7 +26,7 @@ public class ConcurrencyExamples implements Callable<Integer> {
 }
 
 // Runnable Example
-class CallableAndFutureAndRunnableExample implements Runnable {
+class CallableAndFutureAndRunnable implements Runnable {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         try (ExecutorService executorService = Executors.newSingleThreadExecutor()) {
 
@@ -54,7 +56,7 @@ class CallableAndFutureAndRunnableExample implements Runnable {
 
 class SynchronizedBlockExample {
     private int count = 0;
-    // Atomic lock object for synchronization
+    // MultiThreading.AtomicExample lock object for synchronization
     private final Object lock = new Object();
 
     public void performTask() {
@@ -193,7 +195,7 @@ class ThreadLocalExample {
 
     public static void main(String[] args) {
         // Create and start three threads
-        Thread thread1 = new Thread(() -> {
+        Thread Thread1 = new Thread(() -> {
             synchronized (lock) {
                 // Get the thread-specific value
                 System.out.println("Thread 1: before: " + threadLocal.get());
@@ -206,7 +208,7 @@ class ThreadLocalExample {
             }
         });
 
-        Thread thread2 = new Thread(() -> {
+        Thread Thread2 = new Thread(() -> {
             synchronized (lock) {
                 // Get the thread-specific value
                 System.out.println("Thread 2: before: " + threadLocal.get());
@@ -219,7 +221,7 @@ class ThreadLocalExample {
             }
         });
 
-        Thread thread3 = new Thread(() -> {
+        Thread Thread3 = new Thread(() -> {
             synchronized (lock) {
                 // Get the thread-specific value
                 System.out.println("Thread 3: before: " + threadLocal.get());
@@ -232,9 +234,9 @@ class ThreadLocalExample {
             }
         });
 
-        thread1.start();
-        thread2.start();
-        thread3.start();
+        Thread1.start();
+        Thread2.start();
+        Thread3.start();
     }
 }
 
@@ -243,7 +245,7 @@ class DeadlockExample {
     private static final Object lock2 = new Object();
 
     public static void main(String[] args) {
-        Thread thread1 = new Thread(() -> {
+        Thread Thread1 = new Thread(() -> {
             synchronized (lock1) {
                 System.out.println("Thread 1: Holding lock 1...");
                 try {
@@ -259,7 +261,7 @@ class DeadlockExample {
             }
         });
 
-        Thread thread2 = new Thread(() -> {
+        Thread Thread2 = new Thread(() -> {
             synchronized (lock2) {
                 System.out.println("Thread 2: Holding lock 2...");
                 try {
@@ -274,8 +276,8 @@ class DeadlockExample {
             }
         });
 
-        thread1.start();
-        thread2.start();
+        Thread1.start();
+        Thread2.start();
     }
 }
 
@@ -293,8 +295,8 @@ class LockExample {
         }
 
         // Type 2: Lock on read and write
-        ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
-        Lock readLock = readWriteLock.readLock();
+        ReadWriteLock ReadWriteLock = new ReentrantReadWriteLock();
+        Lock readLock = ReadWriteLock.readLock();
         readLock.lock();
         try {
             System.out.println("Inside Try - 2 Block");
@@ -372,11 +374,11 @@ class DeadlockResolutionExample {
         };
 
         // Consistent order for acquiring locks and use of timeouts
-        Thread thread1 = new Thread(acquireLocks);
-        Thread thread2 = new Thread(acquireLocks);
+        Thread Thread1 = new Thread(acquireLocks);
+        Thread Thread2 = new Thread(acquireLocks);
 
-        thread1.start();
-        thread2.start();
+        Thread1.start();
+        Thread2.start();
     }
 }
 
@@ -407,7 +409,7 @@ class ExecutorServiceExample {
         try (ExecutorService executorService = Executors.newFixedThreadPool(2)) {
 
             // Define a Runnable task
-            Runnable runnableTask = () -> {
+            Runnable RunnableTask = () -> {
                 String threadName = Thread.currentThread().getName();
                 System.out.println("Task 1 executed by " + threadName);
             };
@@ -425,7 +427,7 @@ class ExecutorServiceExample {
             );
 
             // Submit the task to the ExecutorService
-            executorService.submit(runnableTask);
+            executorService.submit(RunnableTask);
 
             try {
                 // Use invokeAll to submit a list of Callable tasks and wait for all tasks to complete.

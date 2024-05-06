@@ -3,10 +3,10 @@ Code examples of the multithreading basics and concurrency in JAVA language for 
 
 == Basics of multithreading
 . link:doc/basics.adoc#Concurrency-vs-Parallelism[Concurrency vs Parallelism]
-. link:doc/basics.adoc#Thread-vs-Process[Thread vs Process]
+. link:doc/basics.adoc#Thread-vs-Process[MultiThreading.ThreadExample vs Process]
 . link:doc/basics.adoc#Starting-threads[Starting threads]
 . link:doc/basics.adoc#Lifecycle-of-threads[Lifecycle of threads]
-. link:doc/basics.adoc#Volatile[Volatile]
+. link:doc/basics.adoc#Volatile[MultiThreading.Volatile]
 . link:doc/basics.adoc#Synchronized[Synchronized]
 
 == Concurrency
@@ -20,13 +20,13 @@ Code examples of the multithreading basics and concurrency in JAVA language for 
 === Locks
 . Lock
 . Condition
-. ReentrantLock
-. ReadWriteLock
+. MultiThreading.ReentrantLockExample
+. MultiThreading.ReadWriteLockExample
 
 === Synchronizes
 . Semaphore
-. CyclicBarrier
-. CountDownLatch
+. MultiThreading.CyclicBarrier
+. MultiThreading.CountDownLatch
 . SynchronousQueue
 . Exchanger
 . Phaser
