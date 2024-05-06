@@ -1,14 +1,11 @@
-package clyclic_barrier;
-
 import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class A {
+public class CyclicBarrier {
 
     public static void main(String[] args) {
-        CyclicBarrier barrier = new CyclicBarrier(3, () -> System.out.println("FINISH.."));
+        java.util.concurrent.CyclicBarrier barrier = new java.util.concurrent.CyclicBarrier(3, () -> System.out.println("FINISH.."));
 
         Thread t1 = new Thread(new MyThread(barrier));
         Thread t2 = new Thread(new MyThread(barrier));
@@ -31,9 +28,9 @@ public class A {
 
     static class MyThread implements Runnable {
 
-        private final CyclicBarrier barrier;
+        private final java.util.concurrent.CyclicBarrier barrier;
 
-        public MyThread(CyclicBarrier barrier) {
+        public MyThread(java.util.concurrent.CyclicBarrier barrier) {
             this.barrier = barrier;
         }
 

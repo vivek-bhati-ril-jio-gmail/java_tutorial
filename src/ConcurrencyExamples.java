@@ -1,5 +1,3 @@
-package practice;
-
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
@@ -56,7 +54,7 @@ class CallableAndFutureAndRunnableExample implements Runnable {
 
 class SynchronizedBlockExample {
     private int count = 0;
-    // A lock object for synchronization
+    // Atomic lock object for synchronization
     private final Object lock = new Object();
 
     public void performTask() {

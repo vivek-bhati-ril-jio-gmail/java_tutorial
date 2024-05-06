@@ -1,11 +1,8 @@
-package reentrant_lock;
-
 import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
-public class A<T> {
+public class ReentrantLock<T> {
 
-    private final Lock lock = new ReentrantLock();
+    private final Lock lock = new java.util.concurrent.locks.ReentrantLock();
     private T data;
 
     public void setWithLock(T data) {
@@ -39,15 +36,15 @@ public class A<T> {
     }
 
     public static void main(String[] args) {
-        A<Integer> a = new A<>();
+        ReentrantLock<Integer> reentrantLock = new ReentrantLock<>();
 
         // Atomic modification with lock/unlock
-        a.setWithLock(1);
+        reentrantLock.setWithLock(1);
 
         // Atomic modification with trying lock/unlock
-        a.setWithTryLock(2);
+        reentrantLock.setWithTryLock(2);
 
         // Atomic modification with interruptibly lock/unlock
-        a.setWithLockInterruptibly(3);
+        reentrantLock.setWithLockInterruptibly(3);
     }
 }

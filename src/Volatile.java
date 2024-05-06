@@ -1,6 +1,4 @@
-package votatile;
-
-public class A<T> {
+public class Volatile<T> {
 
     // 1. The volatile modifier allows not to cache a variable in threads.
     // 2. Provides atomic reading in threads.
@@ -13,13 +11,13 @@ public class A<T> {
 
     @SuppressWarnings("NonAtomicOperationOnVolatileField")
     public static void main(String[] args) {
-        A<Integer> a = new A<>();
+        Volatile<Integer> aVolatile = new Volatile<>();
 
         // Atomic reading
-        System.out.println(a.getData());
+        System.out.println(aVolatile.getData());
 
         // Non-atomic modification.
         // You need to increment/decrement variable use Atomics from Concurrency.
-        a.data++;
+        aVolatile.data++;
     }
 }

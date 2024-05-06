@@ -1,5 +1,3 @@
-package condition;
-
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.locks.Condition;
@@ -9,13 +7,13 @@ import java.util.concurrent.locks.ReentrantLock;
 /*
     Provider-Consumer Synchronize Problem with Condition's await() and signalAll()
 */
-public class A<T> {
+public class Conditional<T> {
 
     private final Lock lock;
     private final Condition condition;
     private final Queue<T> data;
 
-    public A() {
+    public Conditional() {
         this.lock = new ReentrantLock();
         this.condition = lock.newCondition();
         this.data = new PriorityQueue<>();
@@ -34,7 +32,7 @@ public class A<T> {
     public T consume() throws InterruptedException {
         try {
             lock.lock();
-            while (data.size() == 0)
+            while (data.isEmpty())
                 condition.await();
             return data.remove();
         } finally {
@@ -43,12 +41,12 @@ public class A<T> {
     }
 
     public static void main(String[] args) {
-        A<Integer> a = new A<>();
+        Conditional<Integer> conditional = new Conditional<>();
 
-        // The first thread which call the provide method of A class and send number to queue.
+        // The first thread which call the provide method of Atomic class and send number to queue.
         new Thread(() -> {
             for (int i = 0; i < 5; i++) {
-                a.provide(i);
+                conditional.provide(i);
                 System.out.println("Provided: " + i);
                 try {
                     Thread.sleep(100);
@@ -56,11 +54,11 @@ public class A<T> {
             }
         }).start();
 
-        // The second thread which call the consume method of A class for remove number from queue.
+        // The second thread which call the consume method of Atomic class for remove number from queue.
         new Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 try {
-                    System.err.println("Consumed: " + a.consume());
+                    System.err.println("Consumed: " + conditional.consume());
                     Thread.sleep(100);
                 } catch (InterruptedException ignore) { }
             }

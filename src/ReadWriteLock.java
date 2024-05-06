@@ -1,12 +1,9 @@
-package read_write_lock;
-
 import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class A<T> {
+public class ReadWriteLock<T> {
 
-    private final ReadWriteLock lock = new ReentrantReadWriteLock();
+    private final java.util.concurrent.locks.ReadWriteLock lock = new ReentrantReadWriteLock();
     private final Lock readLock = lock.readLock();
     private final Lock writeLock = lock.writeLock();
 
@@ -32,13 +29,13 @@ public class A<T> {
     }
 
     public static void main(String[] args) {
-        A<Integer> a = new A<>();
+        ReadWriteLock<Integer> readWriteLock = new ReadWriteLock<>();
 
         // Atomic modification with write lock
-        a.setWithWriteLock(1);
+        readWriteLock.setWithWriteLock(1);
 
         // Atomic reading with read lock
-        System.out.println(a.getWithReadLock());
+        System.out.println(readWriteLock.getWithReadLock());
     }
 
 }

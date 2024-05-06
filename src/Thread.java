@@ -1,17 +1,16 @@
-package runnable;
+public class Thread {
 
-public class A {
-    static class ThreadA implements Runnable {
+    static class ThreadA extends java.lang.Thread {
         @Override
         public void run() {
             for (int i = 0; i < 10; i++) {
-                System.out.println(Thread.currentThread().getName());
+                System.out.println(java.lang.Thread.currentThread().getName());
             }
         }
     }
 
     public static void main(String[] args) {
-        Thread thread = new Thread(new ThreadA());
+        ThreadA thread = new ThreadA();
         thread.start(); // starting thread
     }
 }

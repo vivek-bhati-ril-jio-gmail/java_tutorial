@@ -1,9 +1,7 @@
-package runtime;
-
-public class A {
+public class Runtime {
 
     public static void main(String[] args) throws InterruptedException {
-        Runtime runtime = Runtime.getRuntime();
+        java.lang.Runtime runtime = java.lang.Runtime.getRuntime();
 
         // 1 megabyte = 1048576 (or 1024 * 1024) bytes.
         int megabyte = 1024 * 1024;
@@ -19,11 +17,11 @@ public class A {
         System.out.println("FREE : " + free / megabyte + " MB");
         System.out.println("MAX  : " + max / gigabyte + " GB");
 
-        runtime.addShutdownHook(new Thread(() -> {
+        runtime.addShutdownHook(new java.lang.Thread(() -> {
             System.out.println("Shutting down Hook...");
         }));
 
         System.out.print("\nHello World!\n");
-        Thread.sleep(3000);
+        java.lang.Thread.sleep(3000);
     }
 }

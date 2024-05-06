@@ -1,11 +1,7 @@
-package count_down_latch;
-
-import java.util.concurrent.CountDownLatch;
-
-public class A {
+public class CountDownLatch {
 
     public static void main(String[] args) throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(3);
+        java.util.concurrent.CountDownLatch latch = new java.util.concurrent.CountDownLatch(3);
 
         new Thread(new MyTread(latch)).start();
         sleep();
@@ -30,9 +26,9 @@ public class A {
 
     static class MyTread implements Runnable {
 
-        private final CountDownLatch latch;
+        private final java.util.concurrent.CountDownLatch latch;
 
-        MyTread(CountDownLatch latch) {
+        MyTread(java.util.concurrent.CountDownLatch latch) {
             this.latch = latch;
         }
 

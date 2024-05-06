@@ -1,16 +1,14 @@
-package wait_notify;
-
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 /*
     Provider-Consumer Synchronize Problem with wait() and notifyAll()
 */
-public class A<E> {
+public class WaitNotify<E> {
 
     private final Queue<E> data;
 
-    public A() {
+    public WaitNotify() {
         data = new PriorityQueue<>();
     }
 
@@ -21,36 +19,36 @@ public class A<E> {
         } else {
             System.err.println("An element is not provided.");
         }
-        Thread.sleep(300);
+        java.lang.Thread.sleep(300);
     }
 
     public synchronized void consume() throws InterruptedException {
         while (data.size() <= 0)
             wait();
 
-        Thread.sleep(100);
+        java.lang.Thread.sleep(100);
         data.remove();
         System.err.println("Consumed: " + data.size());
         this.notifyAll();
     }
 
     public static void main(String[] args) {
-        A<Integer> a = new A<>();
+        WaitNotify<Integer> waitNotify = new WaitNotify<>();
 
-        // The first thread which call the provide method of A class and send number to queue.
-        new Thread(() -> {
+        // The first thread which call the provide method of Atomic class and send number to queue.
+        new java.lang.Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 try {
-                    a.provide(i);
+                    waitNotify.provide(i);
                 } catch (InterruptedException ignore) { }
             }
         }).start();
 
-        // The second thread which call the consume method of A class for remove number from queue.
-        new Thread(() -> {
+        // The second thread which call the consume method of Atomic class for remove number from queue.
+        new java.lang.Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 try {
-                    a.consume();
+                    waitNotify.consume();
                 } catch (InterruptedException ignore) { }
             }
         }).start();

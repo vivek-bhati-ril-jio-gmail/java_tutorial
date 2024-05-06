@@ -1,6 +1,4 @@
-package daemon;
-
-public class A {
+public class Daemon {
 
     public static void main(String[] args) {
         Thread thread = new Thread(() -> {

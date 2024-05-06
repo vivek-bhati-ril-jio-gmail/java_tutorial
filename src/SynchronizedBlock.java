@@ -1,6 +1,4 @@
-package synchronized_block;
-
-public class A {
+public class SynchronizedBlock {
 
     private volatile int i;
 
@@ -21,15 +19,15 @@ public class A {
     }
 
     public static void main(String[] args) {
-        A a = new A();
+        SynchronizedBlock synchronizedBlock = new SynchronizedBlock();
 
         // Atomic increment
-        a.inc();
+        synchronizedBlock.inc();
 
         // Atomic decrement
-        a.dec();
+        synchronizedBlock.dec();
 
         // Atomic reading
-        System.out.println(a.getI());
+        System.out.println(synchronizedBlock.getI());
     }
 }

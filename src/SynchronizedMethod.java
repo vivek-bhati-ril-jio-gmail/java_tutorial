@@ -1,6 +1,4 @@
-package synchronized_method;
-
-public class A {
+public class SynchronizedMethod {
 
     private volatile int i;
 
@@ -17,15 +15,15 @@ public class A {
     }
 
     public static void main(String[] args) {
-        A a = new A();
+        SynchronizedMethod synchronizedMethod = new SynchronizedMethod();
 
         // Atomic increment
-        a.inc();
+        synchronizedMethod.inc();
 
         // Atomic decrement
-        a.dec();
+        synchronizedMethod.dec();
 
         // Atomic reading
-        System.out.println(a.getI());
+        System.out.println(synchronizedMethod.getI());
     }
 }

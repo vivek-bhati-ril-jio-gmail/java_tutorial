@@ -1,8 +1,6 @@
-package atomic;
-
 import java.util.concurrent.atomic.*;
 
-public class A {
+public class Atomic {
 
     // Here reading and modification variable is not thread safe.
     // Because of in threads the variable a will be cached.
@@ -36,12 +34,12 @@ public class A {
     private AtomicStampedReference<Integer> l;
 
     public static void main(String[] args) {
-        A a = new A();
+        Atomic atomic = new Atomic();
 
         // Atomically incrementing
-        System.out.println(a.d.incrementAndGet());
+        System.out.println(atomic.d.incrementAndGet());
 
         // Atomically decrementing
-        System.out.println(a.d.decrementAndGet());
+        System.out.println(atomic.d.decrementAndGet());
     }
 }
