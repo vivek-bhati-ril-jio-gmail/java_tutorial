@@ -309,34 +309,34 @@ class LockExample {
 }
 
 /*
-* Deprecated in JDK 1.1
-*
-* Thread.stop() is being phased out due to its inherent risk.
-* When you stop a thread, it unlocks all the monitors it has locked.
-* Other threads might see these objects in an inconsistent state if any
-* of the objects previously protected by these monitors were in an inconsistent state.
-*
-*
-* Thread.suspend() is deprecated because it is inherently deadlock-prone.
-* As a result, Thread.resume() must be deprecated as well.
-* When the target thread is suspended, it holds a lock on the monitor
-* protecting a crucial system resource, and no other thread may access it
-* until the target thread is resumed.
-* Deadlock occurs if the thread that would restart the target thread
-* tries to lock this monitor before invoking resume().
-* */
+ * Deprecated in JDK 1.1
+ *
+ * Thread.stop() is being phased out due to its inherent risk.
+ * When you stop a thread, it unlocks all the monitors it has locked.
+ * Other threads might see these objects in an inconsistent state if any
+ * of the objects previously protected by these monitors were in an inconsistent state.
+ *
+ *
+ * Thread.suspend() is deprecated because it is inherently deadlock-prone.
+ * As a result, Thread.resume() must be deprecated as well.
+ * When the target thread is suspended, it holds a lock on the monitor
+ * protecting a crucial system resource, and no other thread may access it
+ * until the target thread is resumed.
+ * Deadlock occurs if the thread that would restart the target thread
+ * tries to lock this monitor before invoking resume().
+ * */
 
 /*
-* Ways to avoid deadlock:
-*
-* Use a Timeout: Set a timeout for acquiring locks.
-* If a thread cannot acquire a lock within a specified time, it can release any locks it holds and retry or abort.
-* This functionality can be easily implemented using ReentrantLock from the java.util.concurrent.locks package.
-* Lock Ordering: Establish a consistent order for acquiring locks across all threads to prevent circular waiting as seen in the example below.
-* Resource Allocation Graph: Use algorithms like the resource allocation graph to detect and recover from deadlocks.
-* Design for Deadlock Avoidance: Design your multi-threaded code to minimize the potential for deadlocks,
-* such as using higher-level abstractions like the java.util.concurrent classes.
-* */
+ * Ways to avoid deadlock:
+ *
+ * Use a Timeout: Set a timeout for acquiring locks.
+ * If a thread cannot acquire a lock within a specified time, it can release any locks it holds and retry or abort.
+ * This functionality can be easily implemented using ReentrantLock from the java.util.concurrent.locks package.
+ * Lock Ordering: Establish a consistent order for acquiring locks across all threads to prevent circular waiting as seen in the example below.
+ * Resource Allocation Graph: Use algorithms like the resource allocation graph to detect and recover from deadlocks.
+ * Design for Deadlock Avoidance: Design your multi-threaded code to minimize the potential for deadlocks,
+ * such as using higher-level abstractions like the java.util.concurrent classes.
+ * */
 class DeadlockResolutionExample {
     private static final Lock lock1 = new ReentrantLock();
     private static final Lock lock2 = new ReentrantLock();
@@ -383,23 +383,23 @@ class DeadlockResolutionExample {
 }
 
 /*
-* Some useful terms
-*
-* Livelock: is a situation where two or more threads are actively trying to resolve a conflict
-* but end up causing repeated state changes without making any progress.
-* In a livelock, threads are not blocked but are busy responding to each other’s actions, and the system remains in an undesirable state.
-*
-* Thread starvation: occurs when a thread is unable to make progress because it is constantly
-* waiting for a resource or access to a critical section that is always being acquired by other threads.
-* This results in the affected thread not getting a fair share of CPU time.
-*
-* Executor: is an interface that represents an object capable of executing tasks asynchronously.
-* It decouples the task submission from task execution.
-*
-* ExecutorService: is a sub-interface of Executor that extends the functionality by providing methods
-* for managing the lifecycle of the executor and controlling the execution of tasks.
-* In other words, ExecutorService is the core interface for thread pools.
-* */
+ * Some useful terms
+ *
+ * Livelock: is a situation where two or more threads are actively trying to resolve a conflict
+ * but end up causing repeated state changes without making any progress.
+ * In a livelock, threads are not blocked but are busy responding to each other’s actions, and the system remains in an undesirable state.
+ *
+ * Thread starvation: occurs when a thread is unable to make progress because it is constantly
+ * waiting for a resource or access to a critical section that is always being acquired by other threads.
+ * This results in the affected thread not getting a fair share of CPU time.
+ *
+ * Executor: is an interface that represents an object capable of executing tasks asynchronously.
+ * It decouples the task submission from task execution.
+ *
+ * ExecutorService: is a sub-interface of Executor that extends the functionality by providing methods
+ * for managing the lifecycle of the executor and controlling the execution of tasks.
+ * In other words, ExecutorService is the core interface for thread pools.
+ * */
 
 
 class ExecutorServiceExample {
